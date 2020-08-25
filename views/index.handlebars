@@ -21,6 +21,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 ga('create', 'UA-176406197-2', 'auto');
 ga('send', 'pageview');
+ga("send", "event", 'like', 'click');
 </script>
 <!-- End Google Analytics -->
 </head>
@@ -33,18 +34,22 @@ ga('send', 'pageview');
 		</div>
 
 		<h4>Projects</h4>
-		{{#each projects}}
-			<div class="project" id="{{id}}">
-				<div class="thumbnail">
-					<a href="/project/{{id}}">
-						<img src="images/{{image}}" alt="Lorem Pixel image" class="img-responsive">
-						<h4>{{title}}</h4>
-					</a>
-					<div class="likeCtr"><button class="btn btn-default likeBtn">Like</button></div>
-					<div class="details"></div>
+		{{#if viewAlt}}
+		<button class="likeBtn">Like</button>
+		{{else}}
+			{{#each projects}}
+				<div class="project" id="{{id}}">
+					<div class="thumbnail">
+						<a href="/project/{{id}}">
+							<img src="images/{{image}}" alt="Lorem Pixel image" class="img-responsive">
+							<h4>{{title}}</h4>
+						</a>
+						<div class="likeCtr"><button class="btn btn-default likeBtn">Like</button></div>
+						<div class="details"></div>
+					</div>
 				</div>
-			</div>
-		{{/each}}
+			{{/each}}
+			{{/if}}
 
 
 </body>
